@@ -1,0 +1,38 @@
+---
+title: "Developing Data Products - Week 2 Project"
+author: "LZC"
+date: "10/22/2019"
+output: html_document
+---
+### Instructions
+Create a web page using R Markdown that features a map created with Leaflet. 
+
+### *My Favorite Places to Visit in the Tampa, FL Area*
+```{r, echo=FALSE}
+library(leaflet)
+
+my_map <- leaflet() %>% 
+        addTiles()
+
+my_map <- my_map %>%
+  addProviderTiles("Stamen.Watercolor") %>%
+  setView(lng = -82.45927, lat = 27.94653, zoom = 10) %>%
+  addMarkers(lat= 27.94653, lng=-82.471912, 
+             popup="Ciccio Water Restaurant") %>%
+  addMarkers(lat= 28.0334, lng= -82.4822, 
+             popup="Busch Gardens") %>%
+  addMarkers(lat= 27.964157, lng= -82.452606, 
+             popup="Florida Aquarium") %>%
+  addMarkers(lat= 27.765987, lng= -82.63147, 
+             popup="The Dali Museum") %>%
+  addMarkers(lat= 28.060316, lng= -82.5715, 
+             popup="Big Cat Rescue") %>%
+  addMarkers(lat= 27.789772, lng= -82.63839, 
+             popup="The Sunken Gardens") %>%
+  addRectangles(lng1=-82.41, lat1=28.084,
+                lng2=-82.69, lat2=27.75,
+    fillColor = "transparent")
+
+my_map
+```
+
